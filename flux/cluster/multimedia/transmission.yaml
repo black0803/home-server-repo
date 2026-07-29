@@ -53,10 +53,8 @@ spec:
               mountPath: /config
             - name: media
               mountPath: /downloads
-            # 3. Mount the extracted UI into the main container
             - name: webui
               mountPath: /webui
-              
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -65,7 +63,6 @@ spec:
           hostPath:
             path: /var/media
             type: Directory
-        # 4. A temporary memory volume to hold the UI files
         - name: webui
           emptyDir: {}
 ---
