@@ -16,6 +16,8 @@ spec:
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:latest
+          securityContext:
+            privileged: true
           env:
             - name: PUID
               value: "1000"
