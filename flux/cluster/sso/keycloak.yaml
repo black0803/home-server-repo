@@ -1,42 +1,26 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
 metadata:
   name: keycloak
   namespace: sso
 spec:
-  interval: 1h
-  chart:
-    spec:
-      chart: keycloak
-      version: "^22.0.0"
-      sourceRef:
-        kind: HelmRepository
-        name: bitnami
-        namespace: flux-system
-  values:
-    image:
-      registry: docker.io
-      repository: bitnamilegacy/keycloak
-    auth:
-      existingSecret: keycloak-admin-secret
-    
-    production: true
-    httpRelativePath: "/sso"
-    proxyHeaders: "homelab.nobeledgar3.cloud"
-    
-    ingress:
-      enabled: true
-      ingressClassName: traefik
-      hostname: homelab.nobeledgar3.cloud
-      annotations:
-        traefik.ingress.kubernetes.io/router.entrypoints: web
-    
-    postgresql:
-      enabled: true
-      image:
-        registry: docker.io
-        repository: bitnamilegacy/postgresql
-      auth:
-        existingSecret: keycloak-db-secret
-        secretKeys:
-          userPasswordKey: postgres-password
+  instances: 1
+  db:
+    vendor: postgres
+    host: postgres.sso.svc.cluster.local
+    usernameSecret:
+      name: keycloak-db-secret
+      key: postgres-password
+    passwordSecret:
+      name: keycloak-db-secret
+      key: postgres-password
+  http:
+    httpEnabled: true
+  hostname:
+    hostname: homelab.nobeledgar3.cloud
+    strict: false
+  proxy:
+    headers: xforwarded
+  ingress:
+    # We disable the operator's native ingress so we can map it to Traefik manually
+    enabled: false
