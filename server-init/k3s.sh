@@ -1,8 +1,7 @@
 #!/bin/bash
 
 sudo firewall-cmd --permanent --add-port=6443/tcp
-sudo firewall-cmd --permanent --zone=trusted --add-source=10.42.0.0/16
-sudo firewall-cmd --permanent --zone=trusted --add-source=10.43.0.0/16
+sudo firewall-cmd --permanent --zone=trusted --add-source=10.0.0.0/8
 sudo firewall-cmd --reload
 
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--flannel-backend=none --disable-network-policy --disable-kube-proxy" sh -
@@ -24,3 +23,5 @@ cilium install \
 mkdir -p ~/.kube
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
 sudo chown $(id -u):$(id -g) ~/.kube/config
+
+curl -s https://fluxcd.io/install.sh | sudo bash
