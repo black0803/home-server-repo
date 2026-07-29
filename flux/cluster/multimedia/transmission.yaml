@@ -13,6 +13,20 @@ spec:
       labels:
         app: transmission
     spec:
+      initContainers:
+        - name: install-combustion
+          image: alpine:latest
+          command:
+            - sh
+            - -c
+            - |
+              wget -qO /tmp/release.zip https://github.com/Secretmapper/combustion/archive/release.zip
+              unzip -qo /tmp/release.zip -d /webui
+              chown -R 1000:1000 /webui
+          volumeMounts:
+            - name: webui
+              mountPath: /webui
+              
       containers:
         - name: transmission
           image: lscr.io/linuxserver/transmission:latest
@@ -23,6 +37,8 @@ spec:
               value: "1000"
             - name: TZ
               value: "Etc/UTC"
+            - name: TRANSMISSION_WEB_HOME
+              value: "/webui/combustion-release"
           ports:
             - containerPort: 9091
               name: webui
@@ -37,6 +53,10 @@ spec:
               mountPath: /config
             - name: media
               mountPath: /downloads
+            # 3. Mount the extracted UI into the main container
+            - name: webui
+              mountPath: /webui
+              
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -45,6 +65,9 @@ spec:
           hostPath:
             path: /var/media
             type: Directory
+        # 4. A temporary memory volume to hold the UI files
+        - name: webui
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
