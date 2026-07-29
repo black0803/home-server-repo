@@ -14,6 +14,9 @@ spec:
         name: bitnami
         namespace: flux-system
   values:
+    image:
+      registry: docker.io
+      repository: bitnamilegacy/keycloak
     auth:
       existingSecret: keycloak-admin-secret
     
@@ -30,6 +33,9 @@ spec:
     
     postgresql:
       enabled: true
+      image:
+        registry: docker.io
+        repository: bitnamilegacy/postgresql
       auth:
         existingSecret: keycloak-db-secret
         secretKeys:
