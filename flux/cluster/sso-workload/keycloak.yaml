@@ -10,10 +10,10 @@ spec:
     host: postgres.sso.svc.cluster.local
     usernameSecret:
       name: keycloak-db-secret
-      key: postgres-password
+      key: username
     passwordSecret:
       name: keycloak-db-secret
-      key: postgres-password
+      key: password
   http:
     httpEnabled: true
   hostname:
