@@ -1,5 +1,4 @@
 apiVersion: traefik.io/v1alpha1
-kind: Mission # (or TLSStore)
 kind: TLSStore
 metadata:
   name: default
