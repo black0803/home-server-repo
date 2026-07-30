@@ -34,9 +34,6 @@ spec:
               key: cookie-secret
         args:
         - --provider=keycloak-oidc
-        - --client-id=${OAUTH2_PROXY_CLIENT_ID}
-        - --client-secret=${OAUTH2_PROXY_CLIENT_SECRET}
-        - --cookie-secret=${OAUTH2_PROXY_COOKIE_SECRET}
         - --email-domain=*
         - --upstream=static://200
         - --oidc-issuer-url=https://homelab.nobeledgar3.cloud/sso/realms/homelab
