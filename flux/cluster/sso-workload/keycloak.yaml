@@ -16,7 +16,9 @@ spec:
       key: password
   http:
     httpEnabled: true
-    relative-path: /sso
+  additionalOptions:
+    - name: http-relative-path
+      value: /sso
   hostname:
     hostname: homelab.nobeledgar3.cloud
     strict: false
