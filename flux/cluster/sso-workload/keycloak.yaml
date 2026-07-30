@@ -1,26 +1,26 @@
-# apiVersion: k8s.keycloak.org/v2alpha1
-# kind: Keycloak
-# metadata:
-#   name: keycloak
-#   namespace: sso
-# spec:
-#   instances: 1
-#   db:
-#     vendor: postgres
-#     host: postgres.sso.svc.cluster.local
-#     usernameSecret:
-#       name: keycloak-db-secret
-#       key: postgres-password
-#     passwordSecret:
-#       name: keycloak-db-secret
-#       key: postgres-password
-#   http:
-#     httpEnabled: true
-#   hostname:
-#     hostname: homelab.nobeledgar3.cloud
-#     strict: false
-#   proxy:
-#     headers: xforwarded
-#   ingress:
-#     # We disable the operator's native ingress so we can map it to Traefik manually
-#     enabled: false
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: keycloak
+  namespace: sso
+spec:
+  instances: 1
+  db:
+    vendor: postgres
+    host: postgres.sso.svc.cluster.local
+    usernameSecret:
+      name: keycloak-db-secret
+      key: postgres-password
+    passwordSecret:
+      name: keycloak-db-secret
+      key: postgres-password
+  http:
+    httpEnabled: true
+  hostname:
+    hostname: homelab.nobeledgar3.cloud
+    strict: false
+  proxy:
+    headers: xforwarded
+  ingress:
+    # We disable the operator's native ingress so we can map it to Traefik manually
+    enabled: false
