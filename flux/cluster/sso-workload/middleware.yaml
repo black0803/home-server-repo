@@ -1,11 +1,11 @@
-apiVersion: traefik.io/v1alpha1
-kind: Middleware
-metadata:
-  name: sso-strip-prefix
-  namespace: sso
-spec:
-  stripPrefix:
-    prefixes:
-      - /sso
-      - /sso/
-    forceSlash: false
+# apiVersion: traefik.io/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: sso-strip-prefix
+#   namespace: sso
+# spec:
+#   stripPrefix:
+#     prefixes:
+#       - /sso
+#       - /sso/
+#     forceSlash: false
