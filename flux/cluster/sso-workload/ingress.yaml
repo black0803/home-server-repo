@@ -4,9 +4,13 @@ metadata:
   name: keycloak-ingress
   namespace: sso
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.middlewares: sso-sso-strip-prefix@kubernetescrd
 spec:
+  tls:
+    - hosts:
+        - homelab.nobeledgar3.cloud
+      secretName: homelab-tls
   rules:
     - host: homelab.nobeledgar3.cloud
       http:
