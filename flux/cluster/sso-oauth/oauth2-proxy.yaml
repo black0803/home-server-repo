@@ -13,6 +13,10 @@ spec:
       labels:
         app: oauth2-proxy
     spec:
+      hostAliases:
+        - ip: "192.168.18.58"
+          hostnames:
+          - "homelab.nobeledgar3.cloud"
       containers:
       - name: oauth2-proxy
         image: quay.io/oauth2-proxy/oauth2-proxy:v7.6.0
@@ -38,6 +42,7 @@ spec:
         - --upstream=static://200
         - --oidc-issuer-url=https://homelab.nobeledgar3.cloud/sso/realms/homelab
         - --redirect-url=https://homelab.nobeledgar3.cloud/oauth2/callback
+        
         ports:
         - containerPort: 4180
           name: http
