@@ -6,6 +6,5 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /jellyfin
       - /transmission
     forceSlash: true
