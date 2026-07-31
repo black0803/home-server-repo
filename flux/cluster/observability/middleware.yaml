@@ -6,6 +6,6 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /grafana
+      # - /grafana
       - /prometheus
     forceSlash: true
