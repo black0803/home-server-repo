@@ -19,6 +19,15 @@ spec:
       adminPassword: admin
       service:
         type: ClusterIP
+      grafana.ini:
+        server:
+          domain: homelab.nobeledgar3.cloud
+          root_url: https://homelab.nobeledgar3.cloud/grafana
+          serve_from_sub_path: true
+        users:
+          viewers_can_edit: false
+        auth.anonymous:
+          enabled: false
     prometheus:
       prometheusSpec:
         ruleSelectorNilUsesHelmValues: false
