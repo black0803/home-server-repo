@@ -62,7 +62,7 @@ spec:
                 name: jellyfin
                 port:
                   number: 8096
-          - path: /jellyfin/sessions
+          - path: /jellyfin/Sessions
             pathType: Prefix
             backend:
               service:
