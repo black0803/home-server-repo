@@ -25,3 +25,17 @@ spec:
       - X-Forwarded-Preferred-Username
       - X-Forwarded-Access-Token
     trustForwardHeader: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: error-handler
+  namespace: sso
+spec:
+  errors:
+    status:
+      - "401"
+    service:
+      name: oauth2-proxy
+      port: 4180
+    query: /oauth2/start?rd={url}
