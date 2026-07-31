@@ -48,11 +48,28 @@ spec:
     - host: homelab.nobeledgar3.cloud
       http:
         paths:
-          - path: 
-            - /jellyfin/users
-            - /jellyfin/system
-            - /jellyfin/sessions
-            - /jellyfin/socket
+          - path: /jellyfin/users
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
+          - path: /jellyfin/system
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
+          - path: /jellyfin/sessions
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
+          - path: /jellyfin/socket
             pathType: Prefix
             backend:
               service:
