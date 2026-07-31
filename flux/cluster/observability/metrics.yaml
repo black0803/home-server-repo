@@ -33,3 +33,5 @@ spec:
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
+        routePrefix: /prometheus
+        externalUrl: https://homelab.nobeledgar3.cloud/prometheus
