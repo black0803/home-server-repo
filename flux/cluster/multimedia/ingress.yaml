@@ -90,6 +90,13 @@ spec:
                 name: jellyfin
                 port:
                   number: 8096
+          - path: /jellyfin/Items
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
           - path: /jellyfin/socket
             pathType: Prefix
             backend:
