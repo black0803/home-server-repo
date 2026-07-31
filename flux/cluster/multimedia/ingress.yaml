@@ -69,6 +69,20 @@ spec:
                 name: jellyfin
                 port:
                   number: 8096
+          - path: /jellyfin/Playback
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
+          - path: /jellyfin/DisplayPreferences
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
           - path: /jellyfin/socket
             pathType: Prefix
             backend:
