@@ -44,6 +44,10 @@ spec:
         - --oidc-issuer-url=https://homelab.nobeledgar3.cloud/sso/realms/homelab
         - --redirect-url=https://homelab.nobeledgar3.cloud/oauth2/callback
         - --ssl-insecure-skip-verify=true
+        - --skip-provider-button=true
+        - --pass-access-token=true
+        - --pass-authorization-header=true
+        - --set-xauthrequest=true
         ports:
         - containerPort: 4180
           name: http
