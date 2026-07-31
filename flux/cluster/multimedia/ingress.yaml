@@ -48,7 +48,7 @@ spec:
     - host: homelab.nobeledgar3.cloud
       http:
         paths:
-          - path: /jellyfin/users
+          - path: /jellyfin/Users
             pathType: Prefix
             backend:
               service:
