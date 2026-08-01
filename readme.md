@@ -15,10 +15,11 @@ A sample list of the software and technologies used in my home server setup. Sin
 - Automation: - 
 - Git Server: Github (This Repo)
 - CI/CD: FluxCD
-- Database: SQLite
-- Security: SELinux/firewalld
+- Database: SQLite, Postgres
+- Security: SELinux/firewalld, Keycloak IdP
 
 ## Home Lab Server Spec (screenfetch)
+```
            /:-------------:\          black0803@black0803-home-server
         :-------------------::        OS: Fedora 44
       :-----------/shhOHbmp---:\      Kernel: x86_64 Linux 6.19.10-300.fc44.x86_64
@@ -36,6 +37,8 @@ A sample list of the software and technologies used in my home server setup. Sin
  :---:sdNMMMMNds:------------:        RAM: 8929MiB / 31972MiB
  :------:://:-------------::         
  :---------------------://           
+
+ ```
 
 ## Notes
 
