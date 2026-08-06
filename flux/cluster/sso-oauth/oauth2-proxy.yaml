@@ -37,7 +37,7 @@ spec:
         - --provider=keycloak-oidc
         - --email-domain=*
         - --upstream=static://200
-        - --oidc-issuer-url=https://homelab.nobeledgar3.cloud/sso/realms/homelab
+        - --oidc-issuer-url=http://homelab.nobeledgar3.cloud/sso/realms/homelab
         - --redirect-url=https://homelab.nobeledgar3.cloud/oauth2/callback
         - --ssl-insecure-skip-verify=true
         - --skip-provider-button=true
