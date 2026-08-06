@@ -1,19 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: oauth2-ingress
-  namespace: sso
+  name: cockpit-ingress
+  namespace: cockpit
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: sso-keycloak-auth@kubernetescrd
 spec:
   rules:
-    - host: homelab.nobeledgar3.cloud
+    - host: cockpit.nobeledgar3.cloud
       http:
         paths:
-          - path: /oauth2
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: oauth2-proxy
+                name: cockpit-service
                 port:
-                  number: 4180
+                  number: 80

@@ -4,14 +4,9 @@ metadata:
   name: observability-ingress
   namespace: observability
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.middlewares: sso-keycloak-auth@kubernetescrd
 spec:
-  tls:
-    - hosts:
-        - homelab.nobeledgar3.cloud
-      secretName: homelab-tls
   rules:
     - host: homelab.nobeledgar3.cloud
       http:
